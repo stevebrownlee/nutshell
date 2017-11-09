@@ -3,7 +3,7 @@ const activeUser = require("./auth/activeUser")
 const localDb = require("./localDatabase")
 
 // localDb.clear()
-// activeUser.clear()
+activeUser.clear()
 
 if (activeUser.get()) {
     auth.hide()

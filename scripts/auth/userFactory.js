@@ -26,7 +26,6 @@ const userFactory = Object.create(null, {
                 },
                 "save": {
                     value: function () {
-                        debugger
                         const db = localDb.load()
                         db.users = db.users || []
                         db.users.push({

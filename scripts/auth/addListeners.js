@@ -11,7 +11,6 @@ register.addEventListener("click", (event) => {
     const email = document.querySelector("input[name='email']").value
     const newUser = user.create(username, email)
     newUser.save()
-
     activeUser.set(newUser)
 })
 
