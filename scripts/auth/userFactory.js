@@ -1,6 +1,6 @@
 const localDb = require("../localDatabase")
 
-// Load database and sort users by id, descending
+// Load database and grab users
 const db = localDb.load()
 db.users = db.users || []
 
@@ -13,6 +13,11 @@ const userIdGenerator = function* (startFrom = 0) {
     }
 }
 
+/**
+ * Create an instance of the generator. Try to sort the user
+ * table, and if that throws an exception (if the table is empty)
+ * then create an instance without a startFrom argument value
+ */
 let uuid = null
 try {
     db.users.sort((p,n) => n.id - p.id)
@@ -22,6 +27,18 @@ try {
     uuid = userIdGenerator()
 }
 
+/**
+ * Usage:
+ *      userFactory.create(username, email)
+ *
+ * This will generate a new user object
+ *      Example: {
+ *          id: 1,
+ *          username: "Steve",
+ *          email: "steve@stevebrownlee.com",
+ *          save: function
+ *      }
+ */
 const userFactory = Object.create(null, {
     "create": {
         value: (username, email) => {
