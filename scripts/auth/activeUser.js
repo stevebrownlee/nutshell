@@ -1,8 +1,8 @@
 const activeUser = Object.create(null, {
-    "get": {
+    "load": {
         value: () => JSON.parse(sessionStorage.getItem("ActiveUser"))
     },
-    "set": {
+    "save": {
         value: user => {
             sessionStorage.setItem("ActiveUser", JSON.stringify({
                 "id": user.id,

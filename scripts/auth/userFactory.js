@@ -1,5 +1,9 @@
 const localDb = require("../localDatabase")
 
+// Load database and sort users by id, descending
+const db = localDb.load()
+db.users = db.users || []
+
 const userIdGenerator = function* (startFrom = 0) {
     let id = 1
 
@@ -9,7 +13,14 @@ const userIdGenerator = function* (startFrom = 0) {
     }
 }
 
-const uuid = userIdGenerator()
+let uuid = null
+try {
+    db.users.sort((p,n) => n.id - p.id)
+    uuid = userIdGenerator(db.users[0].id)
+} catch (ex) {
+    console.log("No users yet", db.users);
+    uuid = userIdGenerator()
+}
 
 const userFactory = Object.create(null, {
     "create": {
@@ -26,8 +37,6 @@ const userFactory = Object.create(null, {
                 },
                 "save": {
                     value: function () {
-                        const db = localDb.load()
-                        db.users = db.users || []
                         db.users.push({
                             "id": this.id,
                             "username": this.username,
