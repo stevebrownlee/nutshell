@@ -1,0 +1,23 @@
+.navbar  { grid-area: navbar;  }
+.tasks  { grid-area: tasks;  }
+.events    { grid-area: events;    }
+.news { grid-area: news; }
+.chat    { grid-area: chat;    }
+.friends { grid-area: friends; }
+.footer  { grid-area: footer;  }
+
+
+.grid {
+    display: grid;
+    
+    grid-definition-columns: 1fr 1fr 1fr;
+    grid-definition-rows: 40px 150px 1fr 1fr 1fr 50px;
+    
+    grid-template: "navbar navbar navbar"
+                   "tasks events news"
+                   "tasks events news"
+                   "chat chat friends"
+                   "chat chat friends"
+                   "footer footer footer";
+    
+    }
