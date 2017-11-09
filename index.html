@@ -4,20 +4,37 @@
   <meta charset="utf-8">
   <title>Nashville Software School</title>
   <link rel="stylesheet" href="./styles/nutshell.css">
-
+  <link rel="stylesheet" href="./styles/auth.css">
 </head>
 
 <body>
-  <section class="grid">
-    <nav class="navbar">See all your information in Nutshell</nav>
-    <header class="tasks">Tasks</header>
-    <section class="events">Events</section>
-    <section class="news">News</section>
-    <section class="chat">Chat window</section>
-    <section class="friends">Friends</section>
-    <footer class="footer">Footer</footer>
-   </section>
+  <section class="auth hidden">
+    <div class="auth__usernamePrompt">
+      Username: 
+    </div>
+    <div class="auth__usernameInput">
+      <input type="text" name="username">
+    </div>
+    <div class="auth__emailPrompt">
+        Email:
+    </div>
+    <div class="auth__emailInput">
+      <input type="text" name="email">
+    </div>
+    <button class="button button--newAccount">New account</button>
+    <button class="button button--login">Login</button>
+  </section>
 
-  <script src="./build/bundle.min.js"></script>
+  <section class="grid hidden">
+    <nav class="navbar">See all your information in Nutshell</nav>
+    <header class="tasks"></header>
+    <section class="events"></section>
+    <section class="news"></section>
+    <section class="chat"></section>
+    <section class="friends"></section>
+    <footer class="footer"></footer>
+  </section>
+
+  <script src="./build/bundle.js"></script>
 </body>
 </html>

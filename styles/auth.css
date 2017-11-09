@@ -1,0 +1,18 @@
+.auth__usernamePrompt  { grid-area: usernamePrompt;  }
+.auth__usernameInput  { grid-area: username;  }
+.auth__emailPrompt    { grid-area: emailPrompt;    }
+.auth__emailInput    { grid-area: email;    }
+.button--newAccount    { grid-area: new;    }
+.button--login    { grid-area: login;    }
+
+.auth {
+    /* display: grid; */
+    
+    grid-template-columns: 50px 300px;
+    grid-template-rows: auto;
+    
+    grid-template: "usernamePrompt username"
+                   "emailPrompt email"
+                   "new login";
+    
+    }
