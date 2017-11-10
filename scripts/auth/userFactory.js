@@ -1,4 +1,4 @@
-const localDb = require("../localDatabase")
+const localDb = require("localDatabase")
 
 // Load database and grab users
 const db = localDb.load()

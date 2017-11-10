@@ -1,3 +1,3 @@
-const listeners = require("./addListeners")
+const listeners = require("auth/addListeners")
 
 listeners.init()
