@@ -1,14 +1,15 @@
+const activeUser = require("./activeUser")
 const listeners = require("./addListeners")
 
-const authEl = document.querySelector(".auth")
-
-const auth = Object.create(null, {
-    "show": {
-        value: () => authEl.classList.remove("hidden")
-    },
-    "hide": {
-        value: () => authEl.classList.add("hidden")
+const init = () => {
+    if (activeUser.load()) {
+        console.log("No active user")
+        document.querySelector(".auth").classList.add("hidden")
+        document.querySelector(".gridContainer").classList.remove("hidden")
+    } else {
+        console.log("Active user")
+        document.querySelector(".auth").classList.remove("hidden")
+        document.querySelector(".gridContainer").classList.add("hidden")
     }
-})
-
-module.exports = auth
+}
+module.exports = {init}

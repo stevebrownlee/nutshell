@@ -1,12 +1,8 @@
-const auth = require("./auth/init")
 const activeUser = require("./auth/activeUser")
+const auth = require("./auth/init")
 const localDb = require("./localDatabase")
 
-localDb.clear()
+// localDb.clear()
 activeUser.clear()
 
-if (activeUser.load()) {
-    auth.hide()
-} else {
-    auth.show()
-}
+auth.init()
