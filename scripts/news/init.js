@@ -8,7 +8,7 @@ const init = () => {
     const db = localDatabase.load()
     db.news = db.news || []
 
-    const newsEl = document.querySelector(".news")
+    const newsEl = document.querySelector(".news > .widget__contents")
     let news = ""
 
     db.news

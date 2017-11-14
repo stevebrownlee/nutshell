@@ -8,7 +8,7 @@ const init = () => {
     const db = localDatabase.load()
     db.tasks = db.tasks || []
 
-    const tasksEl = document.querySelector(".tasks")
+    const tasksEl = document.querySelector(".tasks > .widget__contents")
     let tasks = ""
 
     db.tasks

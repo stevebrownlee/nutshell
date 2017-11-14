@@ -20,10 +20,11 @@ const databaseInterface = Object.create(null, {
                 "messages": [
                     { "id": 1, "message": "The quick brown fox", "userId": 1 },
                     { "id": 2, "message": "Jumped over the lazy cow", "userId": 1 },
-                    { "id": 3, "message": "And the cat died in the box", "userId": 1 },
-                    { "id": 4, "message": "The quick brown fox", "userId": 2 },
-                    { "id": 5, "message": "Jumped over the lazy cow", "userId": 2 },
-                    { "id": 6, "message": "And the cat died in the box", "userId": 3 }
+                    { "id": 3, "message": "And the cat died in the box", "userId": 3 },
+                    { "id": 4, "message": "There once was a boy Kentucky", "userId": 2 },
+                    { "id": 5, "message": "He liked his neighbor who was lucky", "userId": 1 },
+                    { "id": 6, "message": "He asked her to dinner", "userId": 4 },
+                    { "id": 7, "message": "She said yes to the winner", "userId": 3 }
                 ],
                 "tasks": [
                     { "id": 1, "task": "Take out garbage", "userId": 1 },
@@ -43,7 +44,7 @@ const databaseInterface = Object.create(null, {
             }
 
             this.save(db)
-            console.log(this.load())
+            console.info(this.load())
         }
     }
 })

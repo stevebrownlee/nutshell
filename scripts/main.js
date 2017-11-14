@@ -1,6 +1,6 @@
 
-const localDb = require("localDatabase")
-localDb.seed()
+// const localDb = require("localDatabase")
+// localDb.seed()
 // localDb.clear()
 
 // const activeUser = require("auth/activeUser")

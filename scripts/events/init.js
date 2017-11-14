@@ -8,7 +8,7 @@ const init = () => {
     const db = localDatabase.load()
     db.events = db.events || []
 
-    const eventsEl = document.querySelector(".events")
+    const eventsEl = document.querySelector(".events > .widget__contents")
     let events = ""
 
     db.events

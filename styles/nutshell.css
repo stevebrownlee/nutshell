@@ -2,7 +2,17 @@
     display: none;
 }
 
-.navbar  { grid-area: navbar;  }
+.navbar  { 
+    grid-area: navbar;
+    font-size: 2em;
+    padding: 10px 0 20px 5px;
+}
+
+.widget__contents {
+    border: 1px dotted lightblue;
+    padding: 10px;
+}
+
 .tasks  { grid-area: tasks;  }
 .events    { grid-area: events;    }
 .news { grid-area: news; }
