@@ -12,22 +12,28 @@ const writeMessages = () => {
     const messagesEl = document.querySelector(".messages > .widget__contents")
 
     // Listen for keypress event on input fields when editing a message
-    messagesEl.addEventListener("keypress", function (event) {
+    messagesEl.addEventListener("keyup", function (event) {
         if (event.target.className.startsWith("editmessage")) {
-
             // If user pressed return key, and input isn't blank
-            if (event.target.value && event.keyCode === 13) {
+            if (event.target.value && (event.keyCode === 13 || event.keyCode === 27)) {
 
                 // Get id of message being edited
                 const msgId = event.target.className.split("_")[1]
 
-                // Update the message in the database
                 const dbMessage = db.messages.find(m => m.id === parseInt(msgId))
-                dbMessage.message = event.target.value
-                localDatabase.save(db)
 
-                // Update <span> content with new message
-                event.target.parentElement.innerHTML = event.target.value
+                // Display old message on escape
+                if (event.keyCode === 27) {
+                    event.target.parentElement.innerHTML = dbMessage.message
+
+                // Update the message in the database
+                } else {
+                    dbMessage.message = event.target.value
+                    localDatabase.save(db)
+                    // Update <span> content with new message
+                    event.target.parentElement.innerHTML = event.target.value
+                }
+
 
                 editing = false
             }
