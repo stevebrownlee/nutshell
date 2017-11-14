@@ -1,11 +1,26 @@
 const user = require("auth/userFactory")
 const activeUser = require("auth/activeUser")
 const localDatabase = require("localDatabase")
+const dashboard = require("dashboard")
 
 const register = document.querySelector(".button--newAccount")
 const login = document.querySelector(".button--login")
 const username = document.querySelector("input[name='username']")
 const email = document.querySelector("input[name='email']")
+
+const initializeDashboard = (user) => {
+    // Set user as active one in session
+    activeUser.save(user)
+
+    // Hide login panel
+    document.querySelector(".auth").classList.add("hidden")
+
+    // Show app grid
+    document.querySelector(".gridContainer").classList.remove("hidden")
+
+    // Load all dashboard widgets
+    dashboard.init()
+}
 
 login.addEventListener("click", event => {
     // Check if user is in `users` table in database
@@ -14,14 +29,7 @@ login.addEventListener("click", event => {
     )
 
     if (existingUser) {
-        // If so, set user as active
-        activeUser.save(existingUser)
-
-        // Hide login panel
-        document.querySelector(".auth").classList.add("hidden")
-
-        // Show app grid
-        document.querySelector(".gridContainer").classList.remove("hidden")
+        initializeDashboard(existingUser)
     }
 })
 
@@ -32,14 +40,7 @@ register.addEventListener("click", event => {
     // Save user to DB
     newUser.save()
 
-    // Set user as active one in session
-    activeUser.save(newUser)
-
-    // Hide login panel
-    document.querySelector(".auth").classList.add("hidden")
-
-    // Show app grid
-    document.querySelector(".gridContainer").classList.remove("hidden")
+    initializeDashboard(newUser)
 })
 
 module.exports = null

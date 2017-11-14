@@ -1,8 +1,12 @@
-const activeUser = require("auth/activeUser")
-const auth = require("auth/init")
+
 const localDb = require("localDatabase")
-
+localDb.seed()
 // localDb.clear()
-activeUser.clear()
 
+// const activeUser = require("auth/activeUser")
+// activeUser.clear()
+
+// Initialize authentication check
+const auth = require("auth/init")
 auth.init()
+
