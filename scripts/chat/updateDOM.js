@@ -15,20 +15,19 @@ const writeMessages = () => {
     messagesEl.addEventListener("keypress", function (event) {
         if (event.target.className.startsWith("editmessage")) {
 
-            const msgId = event.target.className.split("_")[1]
-
+            // If user pressed return key, and input isn't blank
             if (event.target.value && event.keyCode === 13) {
+
+                // Get id of message being edited
+                const msgId = event.target.className.split("_")[1]
+
                 // Update the message in the database
                 const dbMessage = db.messages.find(m => m.id === parseInt(msgId))
                 dbMessage.message = event.target.value
                 localDatabase.save(db)
 
-
                 // Update <span> content with new message
                 event.target.parentElement.innerHTML = event.target.value
-
-                // Remove the input box
-                // event.target.remove()
 
                 editing = false
             }
