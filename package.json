@@ -11,7 +11,7 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-browserify": "^5.2.0",
-    "grunt-contrib-uglify": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
+    "grunt-contrib-uglify-es": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^20.1.0"
   }
